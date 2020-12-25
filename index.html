@@ -1,0 +1,610 @@
+<html lang="en" class="fa-events-icons-ready"><head>
+
+    <meta charset="UTF-8">
+    
+  <!-- <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  
+  <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111"> -->
+  <link rel="shortcut icon" href="gq-1.PNG" type="image/x-icon">  
+  <title>Loading Git Q</title>   
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #38717e;
+    overflow: hidden;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  #container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #leftSide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    background: #38717e;
+    background: #ffd861;
+    background: #4C5656;
+    background: #CEB2FC;
+    background: #B8F9D3;
+  }
+  
+  #rightSide {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50vw;
+    color: #fff;
+    background: #68a7b1;
+    background: #4C5656;
+    background: #ffd861;
+    background: #ffeeba;
+    background: #4C5656;
+    background: #e2fced;
+    background: #CEB2FC;
+    background: #F0E7FF;
+    background: #DCE9FF;
+    background: #f1f7ff;
+    background: #e2fced;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .door {
+    height: 100vh;
+    z-index: 5;
+    position: absolute;
+    right: 0;
+  }
+  .door p {
+    font-size: 2rem;
+    font-family: "Caveat", cursive;
+  }
+  
+  #drag {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: w-resize;
+  }
+  
+  p {
+    padding: 12px 28px;
+    color: #fbfbfb;
+    font-size: 2rem;
+    font-family: "Assistant";
+    margin: 0;
+  }
+  
+  p span {
+    color: #dadada;
+    display: inline-block;
+    letter-spacing: -0.03rem;
+  }
+  
+  .fa {
+    transform: translateX(-9px);
+    -webkit-animation: arrowMove 1.2s ease-in-out infinite 1s;
+            animation: arrowMove 1.2s ease-in-out infinite 1s;
+  }
+  
+  @-webkit-keyframes arrowMove {
+    0% {
+      transform: translateX(-9px);
+    }
+    50% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-9px);
+    }
+  }
+  
+  @keyframes arrowMove {
+    0% {
+      transform: translateX(-9px);
+    }
+    50% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-9px);
+    }
+  }
+  .container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .cat {
+    width: 115px;
+    height: 220px;
+    transform: translateX(6px);
+    -webkit-animation: eyepeek 2.3s linear;
+            animation: eyepeek 2.3s linear;
+  }
+  
+  @-webkit-keyframes eyepeek {
+    0% {
+      transform: translateX(104px);
+    }
+    100% {
+      transform: translateX(6px);
+    }
+  }
+  
+  @keyframes eyepeek {
+    0% {
+      transform: translateX(104px);
+    }
+    100% {
+      transform: translateX(6px);
+    }
+  }
+  .cat-head {
+    background: #444;
+    width: 114px;
+    height: 100px;
+    border-radius: 141% 98% 0 189%;
+    position: absolute;
+    top: 15px;
+    transform: translateY(10px);
+    z-index: 25;
+  }
+  
+  .cat-ears > div:nth-child(1), .cat-ears > div:nth-child(2) {
+    height: 20px;
+    width: 2px;
+    position: absolute;
+    left: 64px;
+    top: -28px;
+    border-bottom: 40px solid #444;
+    border-left: 30px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 0px solid transparent;
+    transform-origin: bottom;
+    transform: rotate(-5deg);
+    border-radius: 14px 46px 0px 28px;
+  }
+  .cat-ears > div:nth-child(1):before, .cat-ears > div:nth-child(2):before {
+    content: "";
+    height: 12px;
+    width: 2px;
+    box-shadow: inset 1px 0px 1px 1px #a5a5a5;
+    display: inline-block;
+    margin-top: 19px;
+    margin-left: -8px;
+  }
+  .cat-ears > div:nth-child(2) {
+    height: 20px;
+    width: 2px;
+    position: absolute;
+    left: 10px;
+    top: -32px;
+    border-bottom: 40px solid #444;
+    border-left: 30px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 0px solid transparent;
+    transform-origin: bottom;
+    transform: rotate(-22deg);
+    border-radius: 0px 34px 3px 0;
+  }
+  
+  .cat-face {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding-top: 33px;
+    height: 85%;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cat-eyes {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .cat-eyes > div {
+    height: 22px;
+    width: 22px;
+    background: #f5efb9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-animation: eye-blink 2s infinite 3.5s;
+            animation: eye-blink 2s infinite 3.5s;
+  }
+  .cat-eyes > div:before {
+    content: "";
+    height: 12px;
+    width: 8px;
+    background: #333;
+    border-radius: 50%;
+  }
+  
+  @-webkit-keyframes eye-blink {
+    0% {
+      transform: scaleY(1);
+    }
+    18% {
+      transform: scaleY(1);
+    }
+    20% {
+      transform: scaleY(0);
+    }
+    38% {
+      transform: scaleY(1);
+    }
+    45% {
+      transform: scaleY(1);
+    }
+    80% {
+      transform: scaleY(1);
+    }
+  }
+  
+  @keyframes eye-blink {
+    0% {
+      transform: scaleY(1);
+    }
+    18% {
+      transform: scaleY(1);
+    }
+    20% {
+      transform: scaleY(0);
+    }
+    38% {
+      transform: scaleY(1);
+    }
+    45% {
+      transform: scaleY(1);
+    }
+    80% {
+      transform: scaleY(1);
+    }
+  }
+  .cat-nose {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cat-nose:before {
+    content: "";
+    height: 0px;
+    width: 0px;
+    border-top: 8px solid #e4abab;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 0px solid transparent;
+    margin-top: 6px;
+    display: inline-block;
+  }
+  
+  .mustache {
+    width: 100%;
+    position: absolute;
+  }
+  .mustache > div {
+    height: 12px;
+    width: 2px;
+    background: #fbfbfb;
+    transform: rotate(90deg);
+  }
+  
+  .cat-nose > div:nth-child(2) {
+    transform: translateX(111px);
+  }
+  
+  .cat-body {
+    background: #444;
+    width: 236px;
+    height: 120px;
+    border-radius: 237% 242% 196% 216%;
+    position: absolute;
+    top: 51px;
+  }
+  
+  .cat-tail {
+    width: 85px;
+    height: 120px;
+    position: absolute;
+    left: 100px;
+    top: 44%;
+    border-radius: 200px;
+    box-shadow: inset 10px 34px 0px #444;
+    transform: rotate(-451deg);
+  }
+  .cat-tail:after {
+    content: "";
+    position: absolute;
+    width: 124px;
+    height: 94px;
+    border-radius: 0 0 264px 218px;
+    top: 57%;
+    box-shadow: inset 10px -10px #444;
+  }
+  
+  .hand-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100vh;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .hand {
+    width: 30px;
+    height: 23px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    transform: translateX(20px);
+    -webkit-animation: handpeek 0.4s linear 2.5s forwards;
+            animation: handpeek 0.4s linear 2.5s forwards;
+    bottom: -215px;
+  }
+  .hand > div {
+    background-color: #444;
+    width: 17px;
+    height: 13px;
+    border-radius: 62%;
+  }
+  .hand > div:before {
+    content: "";
+    width: 10px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 1px 3px 0px 0px #fbfbfb;
+    display: block;
+    transform-origin: left;
+    transform: translate(19px, 5px) rotate(-180deg);
+  }
+  @-webkit-keyframes handpeek {
+    0% {
+      transform: translateX(20px);
+      z-index: 1;
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(6px);
+      z-index: 5;
+      opacity: 1;
+    }
+  }
+  @keyframes handpeek {
+    0% {
+      transform: translateX(20px);
+      z-index: 1;
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(6px);
+      z-index: 5;
+      opacity: 1;
+    }
+  }
+  
+  .closing .hand-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100%;
+  }
+  .closing .hand {
+    width: 100%;
+    height: 15px;
+    background-color: #444;
+    top: 28px;
+    left: 0;
+  }
+  .closing .hand > div {
+    background-color: #444;
+    width: 18px;
+    height: 34px;
+    border-radius: 62%;
+    transform: translate(-5px, -20px);
+  }
+  .closing .hand > div:before {
+    content: "";
+    width: 10px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 0 0 #fbfbfb;
+    display: block;
+    transform-origin: left;
+    transform: translate(-4px, -10px) rotate(-22deg);
+  }
+  .closing .hand > div:nth-child(2), .closing .hand > div:nth-child(3) {
+    display: none;
+  }
+  
+  .mouth {
+    width: 38px;
+    height: 10px;
+    border-radius: 19px 19px 7px 7px;
+    background: #eee;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .cat {
+      -webkit-animation: none;
+              animation: none;
+    }
+  
+    .cat-eyes > div {
+      height: 24px;
+      width: 24px;
+    }
+    .cat-eyes > div:before {
+      height: 17px;
+      width: 7px;
+    }
+  }
+  </style>
+  
+    <script>
+    window.console = window.console || function(t) {};
+  </script>
+  
+    
+    
+    <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+  <link href="https://use.fontawesome.com/fd40438538.css" media="all" rel="stylesheet"></head>  
+  <body translate="no" data-new-gr-c-s-check-loaded="14.990.0" data-gr-ext-installed="">  
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link href="https://fonts.googleapis.com/css?family=Assistant:300,400,600,700&amp;display=swap&amp;subset=hebrew" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Caveat&amp;display=swap" rel="stylesheet">
+      <script src="https://use.fontawesome.com/fd40438538.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <title>Scratch</title>
+      <div id="container">
+          <div id="leftSide" class="" style="right: 513px;">
+            <!-- <div style="width: 5rem;height: 3rem;
+            background: #68a7b1;border-radius: 0.5rem;margin: 1rem;
+            background: #4C5656;background: #38717e;background: rgb(89, 176, 139);font-weight: bold;color: #ffffff;
+            padding: 1rem;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                GIT Q
+            </div> -->
+              <div class="container">
+                  <div class="cat">
+                      <div class="cat-head">
+                          <div class="cat-ears">
+                              <div></div>
+                              <div></div>
+                          </div>
+                          <div class="cat-face">
+                              <div class="cat-eyes">
+                                  <div></div>
+                                  <div></div>
+                              </div>
+                              <div class="cat-nose">
+                                  <div class="mustache">
+                                      <div></div>
+                                      <div></div>
+                                      <div></div>
+                                  </div>
+                                  <div class="mustache">
+                                      <div></div>
+                                      <div></div>
+                                      <div></div>
+                                  </div>
+                              </div>
+                              <span class="mouth hide" style="display: none;"></span>
+                          </div>
+                      </div>
+                      <div class="hand-wrap">
+                          <div class="hand">
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                          </div>
+                      </div>
+                  </div>
+  
+              </div>
+  
+          </div>
+          <div id="rightSide" class="door" style="width: 513px;">
+              <p style="color: black;">
+                  A visual Q for Software metrics
+              </p>
+              <p>
+                <img src="github-logo.png" alt="" style="height:10rem;width:10rem">
+              </p>
+              <div id="drag">
+              </div>
+          </div>
+      </div>
+      <script>
+          var isResizing = false,
+              lastDownX = 0;
+  
+          (function () {
+              var container = document.getElementById("container"),
+                  left = document.getElementById("leftSide"),
+                  right = document.getElementById("rightSide"),
+                  handle = document.getElementById("drag"),
+                  catHand = document.querySelector('.hand-wrap .hand');
+  
+              handle.onmousedown = function (e) {
+                  isResizing = true;
+                  lastDownX = e.clientX;
+              };
+  
+              document.onmousemove = function (e) {
+                  if (!isResizing) {
+                      return;
+                  }
+                  var offsetRight = container.clientWidth - (e.clientX - container.offsetLeft);
+  
+                  left.style.right = offsetRight + "px";
+                  right.style.width = offsetRight + "px";
+                  catHand.style.width = left.clientWidth;
+                  if (left.clientWidth < 270) {
+                      left.className = "closing";
+                      catHand.style.width = left.clientWidth + "px";
+                      document.querySelector('.hand-wrap').style.width = left.clientWidth + "px";
+  
+                  } else {
+                      left.className = "";
+                      catHand.removeAttribute('style');
+                      document.querySelector('.hand-wrap').removeAttribute('style');
+                  }
+                  if (left.clientWidth < 170) {
+                      document.querySelector('.mouth').style.display = "block";
+                  } else {
+                      document.querySelector('.mouth').style.display = "none";
+                  }
+              }
+  
+              document.onmouseup = function (e) {
+                  isResizing = false;
+              }
+          })();
+      </script> 
+  </body></html>
