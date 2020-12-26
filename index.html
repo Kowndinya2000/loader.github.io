@@ -1,13 +1,5 @@
 <html lang="en" class="fa-events-icons-ready"><head>
-
-    <meta charset="UTF-8">
-    
-  <!-- <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
-  <meta name="apple-mobile-web-app-title" content="CodePen">
-  
-  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-  
-  <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111"> -->
+  <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
@@ -30,7 +22,6 @@
   * {
     box-sizing: border-box;
   }
-  
   body,
   html {
     width: 100%;
@@ -60,6 +51,9 @@
     bottom: 0;
     right: 50%;
     background: #38717e;
+    background: #9D755C;
+    background: #186BFF;
+    background: #CED5DF;
     background: #ffd861;
     background: #4C5656;
     background: #CEB2FC;
@@ -73,6 +67,9 @@
     bottom: 0;
     width: 50vw;
     color: #fff;
+    background: #9D755C;
+    background: #CED5DF;
+    background: #186BFF;
     background: #68a7b1;
     background: #4C5656;
     background: #ffd861;
@@ -500,8 +497,25 @@
     <script>
     window.console = window.console || function(t) {};
   </script>
-  
-    
+  <script>
+      setTimeout(() => {
+        title_writing();
+  }, 500);
+  </script>
+
+    <script>
+        var i = 0;
+        var txt = "A visual Q for Software metrics";
+        function title_writing() {
+          if(i < txt.length)
+          {
+            document.getElementById('title-gitq').innerHTML += txt.charAt(i);
+            i = i + 1;   
+            setTimeout(title_writing,50);
+          }
+        }
+
+    </script>
     
     <script>
     if (document.location.search.match(/type=embed/gi)) {
@@ -566,8 +580,8 @@
   
           </div>
           <div id="rightSide" class="door" style="width: 513px;">
-              <p style="color: black;">
-                  A visual Q for Software metrics
+              <p style="color: black;" id="title-gitq">
+                  
               </p>
               <p>
                 <img src="github-logo.png" alt="" style="height:10rem;width:10rem">
