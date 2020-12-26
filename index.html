@@ -497,11 +497,11 @@
     <script>
     window.console = window.console || function(t) {};
   </script>
-  <script>
+  <!-- <script>
       setTimeout(() => {
         title_writing();
   }, 1500);
-  </script>
+  </script> -->
 
     <script>
         var i = 0;
@@ -511,7 +511,7 @@
           {
             document.getElementById('title-gitq').innerHTML += txt.charAt(i);
             i = i + 1;   
-            setTimeout(title_writing,45);
+            setTimeout(title_writing,50);
           }
         }
 
@@ -581,7 +581,9 @@
           </div>
           <div id="rightSide" class="door" style="width: 513px;">
               <p style="color: black;" id="title-gitq">
-                  
+                  <script>
+                    title_writing();
+                  </script>
               </p>
               <p>
                 <img src="github-logo.png" alt="" style="height:10rem;width:10rem">
